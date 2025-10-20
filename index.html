@@ -69,7 +69,26 @@
       text-shadow: 0 0 6px #ff0;
     }
     </style>
-    <script defer src="main.js"></script>
+    <script defer>
+      let upgcost = 10;
+let powah = 1;
+let coins = 0;
+
+function getcoin() {
+  coins += powah;
+  document.getElementById("Coins").textContent = coins;
+}
+
+function upgcoin() {
+  if coins >= upgcost {
+    coins -= upgcost;
+    upgcost *= 1.5;
+    upgcost = Math.floor(upgcost);
+    powah += 1;
+  }
+  document.getElementById("Coins").textContent = coins;
+}
+    </script>
   </head>
   <body>
     <h1>Hello! Welcome to my page!</h1>
