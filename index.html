@@ -1,125 +1,124 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <title>Script’s Page</title>
     <style>
       * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Consolas, monospace;
-    }
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Consolas, monospace;
+      }
 
-    body {
-      background: radial-gradient(circle at top left, #111 0%, #222 100%);
-      color: #0ff;
-      text-shadow: 0 0 8px #0ff;
-      padding: 2em;
-    }
+      body {
+        background: radial-gradient(circle at top left, #111 0%, #222 100%);
+        color: #0ff;
+        text-shadow: 0 0 8px #0ff;
+        padding: 2em;
+      }
 
-    h1, h4 {
-      margin-bottom: 0.5em;
-    }
+      h1, h4 { margin-bottom: 0.5em; }
 
-    h1 {
-      color: #0ff;
-      text-align: center;
-      font-size: 2em;
-      margin-top: 1em;
-    }
+      h1 {
+        color: #0ff;
+        text-align: center;
+        font-size: 2em;
+        margin-top: 1em;
+      }
 
-    h4 {
-      text-align: center;
-      color: #aaa;
-      margin-bottom: 2em;
-    }
+      h4 {
+        text-align: center;
+        color: #aaa;
+        margin-bottom: 2em;
+      }
 
-    p {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #0ff2;
-      border-radius: 1em;
-      padding: 1em;
-      line-height: 1.6;
-      white-space: pre-line;
-      margin-bottom: 2em;
-    }
+      p {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid #0ff2;
+        border-radius: 1em;
+        padding: 1em;
+        line-height: 1.6;
+        white-space: pre-line;
+        margin-bottom: 2em;
+      }
 
-    button {
-      display: inline-block;
-      background: #0ff2;
-      border: none;
-      border-radius: 0.6em;
-      color: #000;
-      padding: 0.6em 1.2em;
-      margin: 0.5em;
-      font-weight: bold;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.1s;
-    }
+      button {
+        display: inline-block;
+        background: #0ff2;
+        border: none;
+        border-radius: 0.6em;
+        color: #000;
+        padding: 0.6em 1.2em;
+        margin: 0.5em;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.1s;
+      }
 
-    button:hover {
-      background: #0ff;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #0ff;
-    }
+      button:hover {
+        background: #0ff;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #0ff;
+      }
 
-    #Coins {
-      margin-left: 0.4em;
-      color: #ff0;
-      text-shadow: 0 0 6px #ff0;
-    }
+      #Coins {
+        margin-left: 0.4em;
+        color: #ff0;
+        text-shadow: 0 0 6px #ff0;
+      }
     </style>
     <script defer>
       let upgcost = 10;
-let powah = 1;
-let coins = 0;
+      let powah = 1;
+      let coins = 0;
 
-function getcoin() {
-  coins += powah;
-  document.getElementById("Coins").textContent = coins;
-}
+      function getcoin() {
+        coins += powah;
+        document.getElementById("Coins").textContent = coins;
+      }
 
-function upgcoin() {
-  if coins >= upgcost {
-    coins -= upgcost;
-    upgcost *= 1.5;
-    upgcost = Math.floor(upgcost);
-    powah += 1;
-  }
-  document.getElementById("Coins").textContent = coins;
-}
+      function upgcoin() {
+        if (coins >= upgcost) {
+          coins -= upgcost;
+          upgcost = Math.floor(upgcost * 1.5);
+          powah += 1;
+        }
+        document.getElementById("Coins").textContent = coins;
+        document.getElementById("cost").textContent = upgcost;
+      }
     </script>
   </head>
   <body>
     <h1>Hello! Welcome to my page!</h1>
     <h4>This site is scripted by me, Script. :3</h4>
+
     <p>
       -- General
-      
+
       My name is Script.
       I have a kitty named Mashka.
       I am from Russia.
-      
+
       -- What I do for a living
-      
+
       I script stuff.
       I go to school... (Skipped days: 0)
-      
+
       -- My friends
-      
+
       Dima, Mark and Tamerlan (as I said, I live in Russia) are my best friends.
       My dad is Casper. &lt;3
 
       -- Extra
 
       https://www.roblox.com/users/1155792809/profile
-
     </p>
 
     <h1>Play some minigames down here!</h1>
-    
     <button onclick="getcoin()">Get coin!!</button>
-    <h1>You have<span id="Coins">0</span> coins</h1>
+    <h1>You have <span id="Coins">0</span> coins</h1>
     <button onclick="upgcoin()">Upgrade coin! Cost: <span id="cost">10</span>.</button>
   </body>
 </html>
