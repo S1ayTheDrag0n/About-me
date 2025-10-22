@@ -74,6 +74,12 @@
         color: #ff8080;
         text-shadow: 0 0 6px #ff8080;
       }
+
+      #Work {
+        margin-left: 0.4em;
+        color: #808080;
+        text-shadow: 0 0 6px #808080;
+      }
     </style>
     <script defer>
       let upgcost = 10;
@@ -82,6 +88,7 @@
       let lovecost = 10;
       let powahoflove = 1;
       let love = 00;
+      let work = 10000;
 
       function getcoin() {
         coins += powah;
@@ -111,6 +118,11 @@
         }
         document.getElementById("Love").textContent = love;
         document.getElementById("costL").textContent = lovecost;
+      }
+
+      function getwork() {
+        work--;
+        document.getElementById("Work").textContent = work;
       }
     </script>
   </head>
@@ -148,5 +160,8 @@
     <h1>You have <span id="Love">0</span> love</h1>
     <button onclick="getlove()">Get love</button>
     <button onclick="upglove()">Upgrade love! Cost: <span id="costL">10</span>.</button>
+
+    <h1>You have <span id="Work">10000</span> work to do.</h1>
+    <button onclick="getwork()">Finish work</button>
   </body>
 </html>
