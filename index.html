@@ -68,11 +68,20 @@
         color: #ff0;
         text-shadow: 0 0 6px #ff0;
       }
+
+      #Love {
+        margin-left: 0.4em;
+        color: #ff8080;
+        text-shadow: 0 0 6px #ff0;
+      }
     </style>
     <script defer>
       let upgcost = 10;
       let powah = 1;
-      let coins = 100000;
+      let coins = 00;
+      let lovecost = 10;
+      let powahoflove = 1;
+      let love = 00;
 
       function getcoin() {
         coins += powah;
@@ -87,6 +96,21 @@
         }
         document.getElementById("Coins").textContent = coins;
         document.getElementById("cost").textContent = upgcost;
+      }
+
+      function getlove() {
+        love += powahoflove;
+        document.getElementById("Love").textContent = love;
+      }
+
+      function upglove() {
+        if (love >= lovecost) {
+          love -= lovecost;
+          upgcost = Math.floor(lovecost * 1.5);
+          powahoflove += 1;
+        }
+        document.getElementById("Love").textContent = love;
+        document.getElementById("costL").textContent = lovecost;
       }
     </script>
   </head>
@@ -120,5 +144,8 @@
     <button onclick="getcoin()">Get coin!!</button>
     <h1>You have <span id="Coins">0</span> coins</h1>
     <button onclick="upgcoin()">Upgrade coin! Cost: <span id="cost">10</span>.</button>
+    <button onclick="getlove()">Get love</button>
+    <h1>You have <span id="Love">0</span> love</h1>
+    <button onclick="upglove()">Upgrade love! Cost: <span id="costL">10</span>.</button>
   </body>
 </html>
